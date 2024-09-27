@@ -26,15 +26,12 @@ import './Card.css';
 function Card(props) {
     let params = useParams();
     const [news, setNews] = useState(null);
-    console.log(props.apiKey);
     const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${props.apiKey}`;
-    console.log(url);
     
     useEffect(() => { 
       axios.get(url)
         .then(response => {
                 setNews(response.data.articles);
-                // console.log(news);
               });
     }, [])
   return (

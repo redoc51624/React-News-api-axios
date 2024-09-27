@@ -5,11 +5,12 @@ import Card from './Card';
 
 
 function App() {
+  const apiKey = process.env.REACT_APP_NEWS_API
   return (
     <div className="App">
         <Navbar/>
         <div className='body-container'>
-        <Card/>
+        <Card apiKey={apiKey}/>
         </div>
         
     </div>

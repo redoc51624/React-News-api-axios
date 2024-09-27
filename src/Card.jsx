@@ -23,14 +23,18 @@ import './Card.css';
 //     title: "title 1",
 //     text: "Some quick example text to build on the card title and make up the bulk of the card's content."
 // }
-function Card() {
+function Card(props) {
     let params = useParams();
     const [news, setNews] = useState(null);
+    console.log(props.apiKey);
+    const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${props.apiKey}`;
+    console.log(url);
+    
     useEffect(() => { 
-      axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=c6d0646c9ad54fb880cf03351dc617cd')
+      axios.get(url)
         .then(response => {
                 setNews(response.data.articles);
-                console.log(news);
+                // console.log(news);
               });
     }, [])
   return (

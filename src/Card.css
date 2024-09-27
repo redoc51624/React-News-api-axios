@@ -1,0 +1,9 @@
+.card {
+    width: 18rem;
+    margin: 10px 20px;
+    display: inline-block;
+}
+.card-img-top{
+    /* width: 200px;
+    height: 250px; */
+}

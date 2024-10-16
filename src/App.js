@@ -8,57 +8,24 @@ import Health from './Health';
 import Science from './Science';
 import Sports from './Sports';
 import Technology from './Technology';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Card from './Card';
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
-  const routes = [{
-    path: '/',
-    component: Home,
-  }
-  ,{
-    path: '/about',
-    component: About,
-  },{
-    path: '/business',
-    component: Business,
-  }, {
-    path: '/entertainment',
-    component: Entertainment,
-  }, {
-    path: '/health',
-    component: Health,
-  }
-  , {
-    path: '/science',
-    component: Science,
-  }
-  , {
-    path: '/sports',
-    component: Sports,
-  }
-  , {
-    path: '/technology',
-    component: Technology,
-  }];
-  
-  const routeComponents = routes.map(({path, component}, key) => <Route path={path} element={component} key={key} />);
-  const apiKey = process.env.REACT_APP_NEWS_API;
-  const category = "business";
-  
   return (
     <Router>
-      
-    <div className="App">
-        <Navbar/>
-        <div className='body-container'>
-        </div>
-        <Card apiKey={apiKey} category={category}></Card>
-        <Routes>
-        {routeComponents}
-        </Routes>
-    </div>
+      <div className='App container'>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/business" element={<Business />} />
+        <Route path="/entertainment" element={<Entertainment />} />
+        <Route path="/health" element={<Health />} />
+        <Route path="/science" element={<Science />} />
+        <Route path="/sports" element={<Sports />} />
+        <Route path="/technology" element={<Technology />} />
+      </Routes>
+      </div>
     </Router>
   );
 }
